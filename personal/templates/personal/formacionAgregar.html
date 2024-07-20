@@ -1,0 +1,23 @@
+{% extends 'personal/experiencia.html' %}
+
+{% block subtitulo%}
+<div class="d-flex align-items-center justify-content-between mb-4">
+    <h2 class="text-primary fw-bolder mb-0">Agregar Formación</h2>
+    <a class="btn btn-primary px-4 py-3" href="{% url 'formacion' %}">
+        <div class="d-inline-block bi bi-download me-2"></div>
+        Guardar
+    </a>
+</div>
+{% endblock subtitulo%}
+
+{% block contenido2 %}
+<form action="" method="post">
+
+{% csrf_token %}
+    <table>
+        {{ form.as_table }}
+    </table>
+
+</form>
+
+{% endblock contenido2 %}   

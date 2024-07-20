@@ -1,0 +1,27 @@
+{% extends 'personal/experiencia.html' %}
+{% block titulo %}
+<div class="text-center mb-5">
+    <h1 class="display-5 fw-bolder mb-0"><span class="text-gradient d-inline">Contacto</span></h1>
+</div>
+{% endblock titulo %}
+{% block subtitulo%}
+<div class="d-flex align-items-center justify-content-between mb-4">
+    <h2 class="text-primary fw-bolder mb-0">Agregar Contacto</h2>
+    <a class="btn btn-primary px-4 py-3" href="{% url 'index' %}">
+        <div class="d-inline-block bi bi-download me-2"></div>
+        Guardar
+    </a>
+</div>
+{% endblock subtitulo%}
+
+{% block contenido2 %}
+<form action="" method="post">
+
+{% csrf_token %}
+    <table>
+        {{ form.as_table }}
+    </table>
+    <input type="submit" value="Guardar">
+</form>
+
+{% endblock contenido2 %} 

@@ -1,0 +1,18 @@
+{% extends 'personal/contacto_list.html' %}
+{% block titulo %}
+            <div class="container px-5 my-5">
+                <div class="text-center mb-5">
+                    <h1 class="display-5 fw-bolder mb-0"><span class="text-gradient d-inline">Buscar Contacto</span></h1>
+                </div>
+            </div>
+            {% endblock titulo %}
+
+{% block contactocontenido %}
+<form action="{% url 'contactoEncontrar' %}" method="get">
+    {% csrf_token %}
+    <table>
+        <p>Ingrese patron de busqueda: <input type="text" name="buscar" id="buscar"></p>
+    </table>
+    <input type="submit" value="Buscar">
+</form>
+  {% endblock contactocontenido %}

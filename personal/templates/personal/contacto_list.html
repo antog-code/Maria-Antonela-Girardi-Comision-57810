@@ -1,0 +1,49 @@
+{% extends 'personal/contacto.html' %}
+{% block titulo %}
+                <div class="container px-5 my-5">
+                    <div class="text-center mb-5">
+                        <h1 class="display-5 fw-bolder mb-0"><span class="text-gradient d-inline">Listado de contactos</span></h1>
+                    </div>
+                </div>
+            {% endblock titulo %}
+{% block contactocontenido %}
+<table class="table table-hover">
+    <thead>
+        <tr>        
+            <th scope="col">Id</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Email</th>
+            <th scope="col">Teléfono</th>
+            <th scope="col">Mensaje</th>
+            <th scope="col">Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for c in contacto_list %}
+        <tr>
+            <td>{{c.id}}</td>
+            <td>{{c.nombre}}</td>
+            <td>{{c.email}}</td>
+            <td>{{c.telefono}}</td>
+            <td>{{c.mensaje}}</td>
+            <td>
+                <a href="{% url 'contactoUpdate' c.id %}" title="Editar ítem">
+                    <i class="d-inline-block bi bi-pencil-square btn btn-outline-dark btn-lg px-2 py-2 fs-6 fw-bolder"></i>
+                </a>
+                <a href="{% url 'contactoDelete' c.id %}" title="Borrar ítem">
+                    <i class="d-inline-block bi bi-trash btn btn-outline-dark btn-lg px-2 py-2 fs-6 fw-bolder"></i>
+                </a>
+            </td>
+            
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<div class="d-flex align-items-center justify-content-between mb-4">
+    <h2 class="text-primary fw-bolder mb-0">Buscar Contacto</h2>
+    <a class="btn btn-primary px-4 py-3" href="{% url 'buscar' %}">
+        <div class="d-inline-block bi bi-download me-2"></div>
+        Buscar
+    </a>
+</div>
+  {% endblock contactocontenido %}
